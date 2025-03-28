@@ -9,7 +9,6 @@
         </form>
     </div>
 </section>
-<!-- fOOD sEARCH Section Ends Here -->
 
 <?php
 if (isset($_SESSION['order'])) {
@@ -35,20 +34,9 @@ if (isset($_SESSION['order'])) {
                     $title = $row['title'];
                     $image_name = $row['image_name'];
             ?>
-                    <a class="text-decoration-none col mb-3" href="<?php echo SITEURL ?>category-foods.php?category_id=<?php echo $id ?>">
-                        <div class="card">
-                            <?php if ($image_name == "") {
-                                echo "<div class='text-danger'>Image not available!</div>";
-                            } else {
-                            ?>
-                                <img src="<?php echo SITEURL ?>images/category/<?php echo $image_name ?>" alt="<?php echo $image_name ?>" class="card-img-top">
-                            <?php } ?>
 
-                            <div class="card-body bg-dark text-white rounded-bottom">
-                                <h3 class="card-text text-center"><?php echo $title ?></h3>
-                            </div>
-                        </div>
-                    </a>
+                    <?php include "./partials-front/category-cards.php" ?>
+
             <?php
                 }
             } else echo "<div class='text-danger'>Category Not Added!</div>";
@@ -56,11 +44,9 @@ if (isset($_SESSION['order'])) {
         </div>
     </div>
 </section>
-<!-- Categories Section Ends Here -->
 
 
 <!-- fOOD MEnu Section Starts Here -->
-
 <section class="food-menu bg-body-tertiary pb-5">
     <div class="container">
         <h2 class="text-center my-5 pt-5">Food Menu</h2>
@@ -79,40 +65,13 @@ if (isset($_SESSION['order'])) {
                     $price = $row['price'];
                     $image_name = $row['image_name'];
             ?>
-                    <div class="col mb-4">
-                        <div class="card text-bg-dark">
-                            <div class="row align-items-center">
-                                <div class="col-md-4">
-                                    <?php if ($image_name == "") {
-                                        echo "<div class='rounded-start'>Image not available!</div>";
-                                    } else {
-                                    ?>
-                                        <img src="<?php echo SITEURL ?>images/food/<?php echo $image_name ?>" alt="<?php echo $image_name ?>" class="img-fluid rounded-start">
-                                    <?php } ?>
-                                </div>
-
-                                <div class="col-md-8 py-3">
-                                    <div class="card-body d-flex flex-column align-items-center text-center p-0">
-                                        <h4 class="card-title"><?php echo $title ?></h4>
-                                        <p class="card-text">$<?php echo $price ?></p>
-                                        <p class="card-text"><?php echo $description ?></p>
-                                        <a href="<?php echo SITEURL ?>order.php?food_id=<?php echo $id ?>" class="btn btn-warning">Order Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php include "./partials-front/food-cards.php" ?>
             <?php
                 }
             } else echo "<div class='text-danger'>Food Not Added!</div>";
             ?>
         </div>
     </div>
-
-    <p class="text-center my-5">
-        <a href="<?php echo SITEURL ?>foods.php" class="text-black">See All Foods</a>
-    </p>
 </section>
-<!-- fOOD Menu Section Ends Here -->
 
 <?php include "./partials-front/footer.php" ?>

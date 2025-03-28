@@ -9,7 +9,6 @@
         </form>
     </div>
 </section>
-<!-- fOOD sEARCH Section Ends Here -->
 
 
 
@@ -32,29 +31,9 @@
                     $price = $row['price'];
                     $image_name = $row['image_name'];
             ?>
-                    <div class="col mb-4">
-                        <div class="card text-bg-dark">
-                            <div class="row align-items-center">
-                                <div class="col-md-4">
-                                    <?php if ($image_name == "") {
-                                        echo "<div class='rounded-start'>Image not available!</div>";
-                                    } else {
-                                    ?>
-                                        <img src="<?php echo SITEURL ?>images/food/<?php echo $image_name ?>" alt="<?php echo $image_name ?>" class="img-fluid rounded-start">
-                                    <?php } ?>
-                                </div>
 
-                                <div class="col-md-8 py-3">
-                                    <div class="card-body d-flex flex-column align-items-center text-center p-0">
-                                        <h4 class="card-title"><?php echo $title ?></h4>
-                                        <p class="card-text">$<?php echo $price ?></p>
-                                        <p class="card-text"><?php echo $description ?></p>
-                                        <a href="<?php echo SITEURL ?>order.php?food_id=<?php echo $id ?>" class="btn btn-warning">Order Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php include "./partials-front/food-cards.php" ?>
+
             <?php
                 }
             } else echo "<div class='text-danger'>Food Not Added!</div>";
@@ -63,6 +42,5 @@
     </div>
 
 </section>
-<!-- fOOD Menu Section Ends Here -->
 
 <?php include "./partials-front/footer.php" ?>

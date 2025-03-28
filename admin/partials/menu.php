@@ -15,19 +15,23 @@ include "login-check.php";
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-sm bg-dark" data-bs-theme="dark">
+  <nav class="navbar navbar-expand-sm bg-primary" data-bs-theme="dark">
     <div class="container col-md-6 mx-auto">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse text-center" id="navbarNavAltMarkup">
         <div class="navbar-nav mx-auto">
-          <a class="nav-link" href="index.php">Home</a>
-          <a class="nav-link" href="manage-admin.php">Admin</a>
-          <a class="nav-link" href="manage-category.php">Category</a>
-          <a class="nav-link" href="manage-food.php">Food</a>
-          <a class="nav-link" href="manage-order.php">Order</a>
-          <a class="nav-link" href="logout.php">Logout</a>
+          <?php
+          $current_page = basename($_SERVER['PHP_SELF']);
+          ?>
+          <a class="nav-link fw-semibold <?php echo ($current_page == 'index.php') ? 'active text-light' : ''; ?>" href="index.php">Home</a>
+          <a class="nav-link fw-semibold <?php echo ($current_page == 'manage-admin.php') ? 'active text-light' : ''; ?>" href="manage-admin.php">Admin</a>
+          <a class="nav-link fw-semibold <?php echo ($current_page == 'manage-category.php') ? 'active text-light' : ''; ?>" href="manage-category.php">Category</a>
+          <a class="nav-link fw-semibold <?php echo ($current_page == 'manage-food.php') ? 'active text-light' : ''; ?>" href="manage-food.php">Food</a>
+          <a class="nav-link fw-semibold <?php echo ($current_page == 'manage-order.php') ? 'active text-light' : ''; ?>" href="manage-order.php">Order</a>
+          <a class="nav-link fw-semibold <?php echo ($current_page == 'manage-feedback.php') ? 'active text-light' : ''; ?>" href="manage-feedback.php">Feedback</a>
+          <a class="nav-link fw-semibold <?php echo ($current_page == 'logout.php') ? 'active text-light' : ''; ?>" href="logout.php">Logout</a>
         </div>
       </div>
     </div>
